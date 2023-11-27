@@ -2,10 +2,7 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverHeader,
   PopoverBody,
-  PopoverArrow,
-  PopoverCloseButton,
   Box,
 } from "@chakra-ui/react";
 

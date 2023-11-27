@@ -8,12 +8,14 @@ import {
   Spinner,
   Text,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import useProduct from "../hooks/useProduct";
 import { useState } from "react";
 function Product() {
   const { data, isLoading } = useProduct();
   const [selectedSize, setSelectedSize] = useState(null);
+  const toast = useToast();
 
   if (isLoading)
     return (
@@ -22,11 +24,27 @@ function Product() {
       </Center>
     );
 
-  const { title, description, price, imageURL, sizeOptions } = data;
+  const { id, title, description, price, imageURL, sizeOptions } = data;
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   }).format(price);
+
+  const handleAdd = () => {
+    if (!selectedSize)
+      return toast({
+        position: "top",
+        status: "error",
+        title: "Select a size.",
+      });
+    const item = {
+      id,
+      title,
+      price,
+      size: selectedSize,
+    };
+    console.log(item);
+  };
 
   return (
     <Grid
@@ -88,6 +106,7 @@ function Product() {
             bgColor: "#222",
           }}
           transition='all .2s'
+          onClick={handleAdd}
         >
           ADD TO CART
         </Button>
