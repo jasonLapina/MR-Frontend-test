@@ -15,7 +15,7 @@ function Cart() {
       <Box display='flex' maxW='var(--maxW)' justifyContent='end' mx='auto'>
         <Popover>
           <PopoverTrigger>
-            <Box as='button' fontSize='12px' py='6px'>
+            <Box as='button' fontSize='12px' py='6px' fontWeight='semibold'>
               My Cart ( 4 )
             </Box>
           </PopoverTrigger>

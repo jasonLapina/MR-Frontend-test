@@ -46,8 +46,13 @@ function Product() {
         <Text color='#888'>{description}</Text>
         <Box>
           <Box fontSize='14px'>
-            <Text mb='8px' color='#888' fontWeight='semibold'>
-              SIZE{" "}
+            <Text
+              letterSpacing='wider'
+              mb='8px'
+              color='#888'
+              fontWeight='semibold'
+            >
+              SIZE
               <Box as='span' color='#C90000'>
                 *
               </Box>
