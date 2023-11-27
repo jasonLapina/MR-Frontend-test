@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   Grid,
   HStack,
@@ -27,8 +28,6 @@ function Product() {
     currency: "USD",
   }).format(price);
 
-  console.log(sizeOptions);
-
   return (
     <Grid
       gridTemplateColumns='1fr 1fr'
@@ -36,10 +35,11 @@ function Product() {
       justifyItems='center'
       alignItems='start'
       mt='16px'
+      columnGap='80px'
     >
       <Image maxW='400px' alt={title} src={imageURL} />
       <VStack alignItems='normal' gap='24px'>
-        <Text fontSize='20px'>{title}</Text>
+        <Text fontSize='24px'>{title}</Text>
         <Text py='4px' borderBlock='solid 1px #f5f5f5' fontWeight='bold'>
           {formattedPrice}
         </Text>
@@ -71,6 +71,21 @@ function Product() {
             ))}
           </HStack>
         </Box>
+        <Button
+          bgColor='white'
+          borderRadius='none'
+          border='solid 2.4px #222'
+          w='fit-content'
+          fontWeight='bold'
+          px='32px'
+          _hover={{
+            color: "white",
+            bgColor: "#222",
+          }}
+          transition='all .2s'
+        >
+          ADD TO CART
+        </Button>
       </VStack>
     </Grid>
   );
