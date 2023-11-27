@@ -8,6 +8,7 @@ import {
   Image,
   Text,
   VStack,
+  PopoverArrow,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
@@ -33,6 +34,7 @@ function Cart() {
                 </Box>
               </PopoverTrigger>
               <PopoverContent borderRadius='none'>
+                <PopoverArrow />
                 <PopoverBody p='16px'>
                   <VStack align='normal' gap='24px'>
                     {cart.map((item, i) => {
