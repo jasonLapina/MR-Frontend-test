@@ -4,11 +4,16 @@ import {
   PopoverContent,
   PopoverBody,
   Box,
+  HStack,
+  Image,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
+  const numCartItems = cart.reduce((acc, cur) => cur.quantity + acc, 0);
 
   return (
     <Box mt='16px' bgColor='#f6f6f7' maxW='1440px' px='16px' mx='auto'>
@@ -24,12 +29,40 @@ function Cart() {
                   fontWeight='semibold'
                   color={isOpen ? "#222" : "#888"}
                 >
-                  My Cart ( {cart.length} )
+                  My Cart ( {numCartItems} )
                 </Box>
               </PopoverTrigger>
               <PopoverContent borderRadius='none'>
-                <PopoverBody>
-                  Are you sure you want to have that milkshake?
+                <PopoverBody p='16px'>
+                  <VStack align='normal' gap='24px'>
+                    {cart.map((item, i) => {
+                      const { title, imageURL, price, quantity, size, id } =
+                        item;
+                      return (
+                        <HStack
+                          gap='24px'
+                          key={id + i}
+                          alignItems='start'
+                          fontWeight='semibold'
+                          fontSize='15px'
+                        >
+                          <Image maxW='80px' src={imageURL} alt={title} />
+                          <VStack gap='4px' align='normal'>
+                            <Text>{title}</Text>
+                            <Text>
+                              {quantity}x{" "}
+                              <Box as='span' fontWeight='bold'>
+                                {price}
+                              </Box>
+                            </Text>
+                            <Text mt='6px' fontSize='14px'>
+                              Size: {size}
+                            </Text>
+                          </VStack>
+                        </HStack>
+                      );
+                    })}
+                  </VStack>
                 </PopoverBody>
               </PopoverContent>
             </>

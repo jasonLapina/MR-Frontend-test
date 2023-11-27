@@ -12,10 +12,13 @@ import {
 } from "@chakra-ui/react";
 import useProduct from "../hooks/useProduct";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store";
 function Product() {
   const { data, isLoading } = useProduct();
   const [selectedSize, setSelectedSize] = useState(null);
   const toast = useToast();
+  const dispatch = useDispatch();
 
   if (isLoading)
     return (
@@ -40,10 +43,11 @@ function Product() {
     const item = {
       id,
       title,
-      price,
+      price: formattedPrice,
       size: selectedSize,
+      imageURL,
     };
-    console.log(item);
+    dispatch(addToCart(item));
   };
 
   return (

@@ -13,9 +13,9 @@ const cartSlice = createSlice({
         const existingIndex = state.indexOf(existingItem);
         state[existingIndex] = {
           ...existingItem,
-          quantity: existingItem.quantity + action.payload.quantity,
+          quantity: existingItem.quantity + 1,
         };
-      } else state.push(action.payload);
+      } else state.push({ ...action.payload, quantity: 1 });
     },
   },
 });
