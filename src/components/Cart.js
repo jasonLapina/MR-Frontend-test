@@ -48,35 +48,39 @@ function Cart() {
               <PopoverContent borderRadius='none'>
                 <PopoverArrow />
                 <PopoverBody p='16px'>
-                  <VStack align='normal' gap='24px'>
-                    {cart.map((item, i) => {
-                      const { title, imageURL, price, quantity, size, id } =
-                        item;
-                      return (
-                        <HStack
-                          gap='24px'
-                          key={id + i}
-                          alignItems='start'
-                          fontWeight='semibold'
-                          fontSize='15px'
-                        >
-                          <Image maxW='80px' src={imageURL} alt={title} />
-                          <VStack gap='4px' align='normal'>
-                            <Text>{title}</Text>
-                            <Text>
-                              {quantity}x{" "}
-                              <Box as='span' fontWeight='bold'>
-                                {price}
-                              </Box>
-                            </Text>
-                            <Text mt='6px' fontSize='14px'>
-                              Size: {size}
-                            </Text>
-                          </VStack>
-                        </HStack>
-                      );
-                    })}
-                  </VStack>
+                  {cart.length > 0 ? (
+                    <VStack align='normal' gap='24px'>
+                      {cart.map((item, i) => {
+                        const { title, imageURL, price, quantity, size, id } =
+                          item;
+                        return (
+                          <HStack
+                            gap='24px'
+                            key={id + i}
+                            alignItems='start'
+                            fontWeight='semibold'
+                            fontSize='15px'
+                          >
+                            <Image maxW='80px' src={imageURL} alt={title} />
+                            <VStack gap='4px' align='normal'>
+                              <Text>{title}</Text>
+                              <Text>
+                                {quantity}x{" "}
+                                <Box as='span' fontWeight='bold'>
+                                  {price}
+                                </Box>
+                              </Text>
+                              <Text mt='6px' fontSize='14px'>
+                                Size: {size}
+                              </Text>
+                            </VStack>
+                          </HStack>
+                        );
+                      })}
+                    </VStack>
+                  ) : (
+                    <Text>No items in your cart.</Text>
+                  )}
                 </PopoverBody>
               </PopoverContent>
             </>
