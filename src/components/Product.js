@@ -24,7 +24,7 @@ function Product() {
       justifyContent='center'
       justifyItems='center'
       alignItems='start'
-      mt='24px'
+      mt='16px'
     >
       <Image maxW='400px' alt={title} src={imageURL} />
       <VStack alignItems='normal' gap='24px'>

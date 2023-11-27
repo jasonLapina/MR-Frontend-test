@@ -11,7 +11,7 @@ import {
 
 function Cart() {
   return (
-    <Box mt='16px' bgColor='#f6f6f7' maxW='1440px' mx='auto'>
+    <Box mt='16px' bgColor='#f6f6f7' maxW='1440px' px='16px' mx='auto'>
       <Box display='flex' maxW='var(--maxW)' justifyContent='end' mx='auto'>
         <Popover>
           <PopoverTrigger>
