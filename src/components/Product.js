@@ -52,17 +52,22 @@ function Product() {
 
   return (
     <Grid
-      gridTemplateColumns='1fr 1fr'
+      gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}
       justifyContent='center'
       justifyItems='center'
       alignItems='start'
       mt='16px'
       columnGap='80px'
+      rowGap='40px'
     >
       <Image maxW='400px' alt={title} src={imageURL} />
       <VStack alignItems='normal' gap='24px'>
         <Text fontSize='24px'>{title}</Text>
-        <Text py='4px' borderBlock='solid 1px #f5f5f5' fontWeight='bold'>
+        <Text
+          py='4px'
+          borderBlock={{ base: "none", md: "solid 1px #f5f5f5" }}
+          fontWeight='bold'
+        >
           {formattedPrice}
         </Text>
         <Text color='#888'>{description}</Text>
