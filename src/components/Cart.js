@@ -5,8 +5,11 @@ import {
   PopoverBody,
   Box,
 } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 
 function Cart() {
+  const cart = useSelector((state) => state.cart);
+
   return (
     <Box mt='16px' bgColor='#f6f6f7' maxW='1440px' px='16px' mx='auto'>
       <Box display='flex' maxW='var(--maxW)' justifyContent='end' mx='auto'>
@@ -21,7 +24,7 @@ function Cart() {
                   fontWeight='semibold'
                   color={isOpen ? "#222" : "#888"}
                 >
-                  My Cart ( 4 )
+                  My Cart ( {cart.length} )
                 </Box>
               </PopoverTrigger>
               <PopoverContent borderRadius='none'>
